@@ -120,6 +120,15 @@ while opcao != 0:
         numero2 = int(input("Digite outro número"))
         numero3 = int(input("Digite outro número"))
 
+        if numero1 > numero2 > numero3:
+            print("Ordem decrescente!")
+        elif numero1 < numero2 < numero3:
+            print("Ordem crescente!")
+        elif numero1 == numero2 == numero3:
+            print("Números iguais!")
+        else:
+            print("Ordem inválida!")
+
     elif opcao == 13:
         celsius = float(input("Digite o graus celsius: "))
 
@@ -173,22 +182,22 @@ while opcao != 0:
         ano = int(ano)
 
 
-        if 1 <= mes < 12:
+        if 1 <= mes <= 12:
             if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
                 if dia <= 31:
                     data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
                 else:
-                    print("Data inválida!")
+                    print("Data inválida! Esse mês tem apenas 31 dias")
             elif mes == 4 or mes == 6 or mes == 9 or mes == 11:
                 if dia <= 30:
                     data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
                 else:
-                    print("Data inválida!")
+                    print("Data inválida! Esse mês tem apenas 30 dias")
             elif mes == 2:
                 if dia == 28 or dia == 29:
                     data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
                 else:
-                    print("Data inválida!")
+                    print("Data inválida! Esse mês tem apenas 28 a 29 dias")
             print("Data no formato aaaa/mm/dd:", data_formatada)
         else:
             print("Mês inválido! Digie um mês de 1 a 12")
