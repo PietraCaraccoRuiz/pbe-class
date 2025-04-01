@@ -186,21 +186,74 @@ while opcao != 0:
             if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
                 if dia <= 31:
                     data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
+                    print("Data no formato aaaa/mm/dd:", data_formatada)
                 else:
                     print("Data inválida! Esse mês tem apenas 31 dias")
+
             elif mes == 4 or mes == 6 or mes == 9 or mes == 11:
                 if dia <= 30:
                     data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
+                    print("Data no formato aaaa/mm/dd:", data_formatada)
                 else:
                     print("Data inválida! Esse mês tem apenas 30 dias")
             elif mes == 2:
-                if dia == 28 or dia == 29:
-                    data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
+                if ano % 4 == 0 or ano % 100 != 0 and ano % 400 == 0:
+                    if dia == 29:
+                        data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
+                        print("Data no formato aaaa/mm/dd:", data_formatada)
+                    else:
+                        print("Data inválida! Esse mês tem apenas 29 dias")
                 else:
-                    print("Data inválida! Esse mês tem apenas 28 a 29 dias")
-            print("Data no formato aaaa/mm/dd:", data_formatada)
+                    if dia == 28:
+                        data_formatada = f"{ano}/{mes:02d}/{dia:02d}"
+                        print("Data no formato aaaa/mm/dd:", data_formatada)
+                    else:
+                        print("Data inválida! Esse mês tem apenas 28 dias")
+
         else:
             print("Mês inválido! Digie um mês de 1 a 12")
 
+    elif opcao == 18:
+        expressao = input("Digite uma expressão para calcular: ")
+        resultado = eval(expressao)
+
+        print("O resultado da expressão é: ", resultado)
+
+    elif opcao == 19:
+        cpf = (input("Digite seu cpf: "))
+
+        n1 = int(cpf[0])
+        n2 = int(cpf[1])
+        n3 = int(cpf[2])
+        n4 = int(cpf[3])
+        n5 = int(cpf[4])
+        n6 = int(cpf[5])
+        n7 = int(cpf[6])
+        n8 = int(cpf[7])
+        n9 = int(cpf[8])
+        n10 = int(cpf[9])
+        n11 = int(cpf[10])
+
+        if len(cpf) == 11:
+            soma = (n1 * 10) + (n2 * 9) + (n3 * 8) + (n4 * 7) + (n5 * 6) + (n6 * 5) + (n7 * 4) + (n8 * 3) + (n9 * 2)
+            soma1 = (n1 * 11) + (n2 * 10) + (n3 * 9) + (n4 * 8) + (n5 * 7) + (n6* 6) + (n7 * 5) + (n8 * 4) + (n9 * 3) + (n10 * 2)
+
+            if soma % 11 < 2:
+                digito1 = 0
+            else:
+                digito1 = 11 - (soma % 11)
+
+            if soma1 % 11 < 2:
+                digito2 = 0
+            else:
+                digito2 = 11 - (soma % 11)
+
+            if digito1 == n10 and digito2 == n11:
+                print("CPF válido")
+            else:
+                print("Digitos inválidos")
+
+        else:
+            print("CPF inválido!")
 
     opcao = int(input("Deseja continuar: "))
