@@ -1,20 +1,22 @@
 palavras = ["Ana Ana", "1DSTB-SENAI", "Subi no Onibus"]
 
 for palavra in palavras:
-    quant = len(palavra)
+
+    palavra_limpa = palavra.replace(" ", "").lower()
+    quant = len(palavra_limpa)
     normal= []
     invertida = []
 
     i = 0
     for i in range(quant):
         print(i)
-        normal += palavra[i]
+        normal += palavra_limpa[i]
         print(normal)
 
     j = quant - 1
     for i in range(quant):
         print(j)
-        invertida += palavra[j]
+        invertida += palavra_limpa[j]
         print(invertida)
         j -= 1
 
